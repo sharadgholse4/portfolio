@@ -1,4 +1,4 @@
-# Sharad Gholse — Systems & Software Engineer Portfolio
+# Sharad Gholse —  Software Engineer Portfolio
 
 > A high-performance, interactive portfolio showcasing low-latency systems engineering, 3D WebGL computer graphics, concurrent network architectures, and real-time physics simulations.
 
@@ -76,4 +76,4 @@ Open your browser at `http://localhost:3000/`.
 ## 👤 Author
 **Sharad Gholse**
 - GitHub: [@sharadgholse4](https://github.com/sharadgholse4)
-- Specialization: Low-Latency Systems, Software Engineering & Interactive Graphics
+
