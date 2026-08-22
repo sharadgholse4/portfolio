@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Web Server (Port 3000)",
+      "type": "shell",
+      "command": "python -m http.server 3000",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Open in Default Browser",
+      "type": "shell",
+      "command": "Start-Process index.html",
+      "problemMatcher": []
+    }
+  ]
+}

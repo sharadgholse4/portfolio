@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sharad Gholse — Software Developer & Creative Engineer</title>
+    <meta name="description"
+        content="Portfolio of Sharad Gholse — Software Developer specializing in C++, Java, React, and system architecture." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="light-theme">
+    <!-- Interactive Ambient Background Aura, Shiny Particles & Textures -->
+    <div class="bg-decor-container" aria-hidden="true">
+        <canvas id="bgShinyCanvas"></canvas>
+        <div class="cursor-glow-orb" id="cursorGlow"></div>
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+        <div class="ambient-blob blob-3"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav" id="topNav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-avatar">SG</span>
+                <span class="brand-name">Sharad Gholse</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#sandbox" class="nav-link" data-section="sandbox">3D Lab</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Small Compact Theme Toggle -->
+                <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light / Dark Mode"
+                    aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined theme-icon" id="themeIcon">dark_mode</span>
+                </button>
+
+                <button class="sound-toggle-btn" id="audioToggle" title="Toggle Sound Feedback">
+                    <span class="material-symbols-outlined" id="audioIcon">volume_off</span>
+                    <span class="sound-label">Audio</span>
+                </button>
+
+                <a href="#contact" class="btn-primary">
+                    <span>Let's Talk</span>
+                </a>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Section 1: Hero -->
+        <section class="section hero-section" id="hero">
+            <div class="threejs-canvas-wrapper" id="threejs-hero-container"></div>
+
+            <div class="hero-content">
+                <div class="hero-status-tag">
+                    <span class="status-dot"></span>
+                    <span>Available for Software Engineering Roles</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Building resilient software & <span class="text-highlight">modern digital experiences.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Hi, I'm <strong>Sharad Gholse</strong>. I specialize in C++, Java, React, Data Structures, and
+                    concurrent network architecture, creating software that balances raw computational performance with
+                    elegant design.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary-lg">
+                        <span>View Projects</span>
+                        <span class="material-symbols-outlined">arrow_downward</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary-lg">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links-row">
+                    <a href="mailto:sharadgholse@example.com" class="social-link-item">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noreferrer" class="social-link-item">
+                        <span class="material-symbols-outlined">code</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-link-item">
+                        <span class="material-symbols-outlined">link</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="hero-hint">
+                    <span>💡 Move cursor to interact with 3D nodes • Click to inject impulse</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: About Me -->
+        <section class="section about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-heading">Engineering with precision, curiosity & clean code.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Bio Card -->
+                    <div class="card-surface about-main-card">
+                        <h3 class="card-title-lg">Focused on building reliable software systems and scalable web
+                            applications.</h3>
+                        <p class="paragraph">
+                            I am a Computer Science & Engineering undergraduate at <strong>G.H. Raisoni College of
+                                Engineering, Nagpur</strong>. I am passionate about low-level system design,
+                            multi-threaded networking, database optimization, and modern web platforms.
+                        </p>
+                        <p class="paragraph">
+                            My journey is driven by deep problem-solving skills in Data Structures and Algorithms,
+                            paired with practical experience building full-stack platforms and socket communication
+                            servers.
+                        </p>
+
+                        <div class="pill-group">
+                            <span class="badge-pill">Problem Solving</span>
+                            <span class="badge-pill">System Design</span>
+                            <span class="badge-pill">Adaptability</span>
+                            <span class="badge-pill">Continuous Learning</span>
+                        </div>
+
+                        <div class="card-footer-action">
+                            <a href="#contact" class="btn-primary">
+                                <span>Connect with Me</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Cards -->
+                    <div class="about-cards-stack">
+                        <div class="card-surface highlight-item">
+                            <div class="icon-circle">
+                                <span class="material-symbols-outlined">terminal</span>
+                            </div>
+                            <div>
+                                <h4 class="highlight-title">Systems & Socket Programming</h4>
+                                <p class="highlight-desc">Developing multi-client socket servers, concurrency
+                                    management, and real-time network pipelines in C++.</p>
+                            </div>
+                        </div>
+
+                        <div class="card-surface highlight-item">
+                            <div class="icon-circle">
+                                <span class="material-symbols-outlined">layers</span>
+                            </div>
+                            <div>
+                                <h4 class="highlight-title">Full-Stack Development</h4>
+                                <p class="highlight-desc">Designing modern responsive interfaces in React backed by
+                                    resilient SQLite, PostgreSQL, and MySQL databases.</p>
+                            </div>
+                        </div>
+
+                        <div class="card-surface highlight-item">
+                            <div class="icon-circle">
+                                <span class="material-symbols-outlined">database</span>
+                            </div>
+                            <div>
+                                <h4 class="highlight-title">Database Architecture & Data</h4>
+                                <p class="highlight-desc">Writing normalized relational schemas, ACID-compliant
+                                    transactions, and optimized SQL queries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Technical Skills -->
+        <section class="section skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">Capabilities</span>
+                    <h2 class="section-heading">Technical Skills & Interactive Shader</h2>
+                    <p class="section-subtitle">A comprehensive breakdown of the languages, frameworks, and developer
+                        tools I work with daily.</p>
+                </div>
+
+                <div class="skills-layout-grid">
+                    <!-- Left: Categorized Skills -->
+                    <div class="skills-categories-box">
+                        <div class="card-surface skill-cat-card">
+                            <h3 class="cat-title">
+                                <span class="material-symbols-outlined">code</span>
+                                <span>Languages & Frontend</span>
+                            </h3>
+                            <div class="tags-cluster">
+                                <span class="tag-pill">C++</span>
+                                <span class="tag-pill">Java</span>
+                                <span class="tag-pill">React</span>
+                                <span class="tag-pill">JavaScript</span>
+                                <span class="tag-pill">HTML5 & CSS3</span>
+                                <span class="tag-pill">PHP</span>
+                            </div>
+                        </div>
+
+                        <div class="card-surface skill-cat-card">
+                            <h3 class="cat-title">
+                                <span class="material-symbols-outlined">psychology</span>
+                                <span>Core Computer Science</span>
+                            </h3>
+                            <div class="tags-cluster">
+                                <span class="tag-pill">Data Structures & Algorithms</span>
+                                <span class="tag-pill">Object-Oriented Programming (OOP)</span>
+                                <span class="tag-pill">Socket Programming</span>
+                                <span class="tag-pill">System Architecture</span>
+                                <span class="tag-pill">Debugging & SDLC</span>
+                            </div>
+                        </div>
+
+                        <div class="card-surface skill-cat-card">
+                            <h3 class="cat-title">
+                                <span class="material-symbols-outlined">dataset</span>
+                                <span>Databases & Tooling</span>
+                            </h3>
+                            <div class="tags-cluster">
+                                <span class="tag-pill">SQLite</span>
+                                <span class="tag-pill">PostgreSQL</span>
+                                <span class="tag-pill">MySQL</span>
+                                <span class="tag-pill">WebSockets</span>
+                                <span class="tag-pill">Git & GitHub</span>
+                                <span class="tag-pill">VS Code</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: WebGL GLSL Shader Card -->
+                    <div class="card-surface shader-card">
+                        <div class="shader-canvas-box">
+                            <canvas id="shaderCanvas"></canvas>
+                        </div>
+                        <div class="shader-controls-bar">
+                            <div class="slider-control">
+                                <label for="shaderSpeed">Speed</label>
+                                <input type="range" id="shaderSpeed" min="0.2" max="3.0" step="0.1" value="1.0">
+                                <span id="speedVal">1.0x</span>
+                            </div>
+                            <div class="slider-control">
+                                <label for="shaderChaos">Turbulence</label>
+                                <input type="range" id="shaderChaos" min="1.0" max="8.0" step="0.5" value="3.5">
+                                <span id="chaosVal">3.5</span>
+                            </div>
+                            <div class="preset-buttons-row">
+                                <button class="preset-chip active" id="btnQuantum">Sapphire</button>
+                                <button class="preset-chip" id="btnPlasma">Warm Amber</button>
+                                <button class="preset-chip" id="btnCosmic">Seafoam</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projects -->
+        <section class="section projects-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">Featured Projects</span>
+                    <h2 class="section-heading">Selected Engineering Work</h2>
+                    <p class="section-subtitle">Real-world applications built to demonstrate system architecture,
+                        networking, and clean design.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: University Management System -->
+                    <div class="card-surface project-item-card">
+                        <div class="project-graphic grad-blue">
+                            <div class="graphic-icon">
+                                <span class="material-symbols-outlined">school</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header-row">
+                                <span class="project-type">Full-Stack Platform</span>
+                                <span class="project-year">2026</span>
+                            </div>
+                            <h3 class="project-title">University Management System</h3>
+                            <p class="project-description">
+                                A comprehensive educational management portal with a high-performance C++ backend engine
+                                for authentication and grade transcript calculations, SQLite data persistence, and
+                                customized React dashboards for Students, Professors, and Administrators.
+                            </p>
+                            <div class="project-tags">
+                                <span>C++</span>
+                                <span>React</span>
+                                <span>SQLite</span>
+                                <span>Web Development</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn-primary" onclick="openProjectModal('ums')">
+                                    <span>Architecture Details</span>
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noreferrer" class="btn-secondary"
+                                    title="View Source Code">
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Real-Time Broadcast Server -->
+                    <div class="card-surface project-item-card">
+                        <div class="project-graphic grad-indigo">
+                            <div class="graphic-icon">
+                                <span class="material-symbols-outlined">sensors</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header-row">
+                                <span class="project-type">Systems & Networking</span>
+                                <span class="project-year">2026</span>
+                            </div>
+                            <h3 class="project-title">Real-Time Broadcast Server</h3>
+                            <p class="project-description">
+                                A CLI-based WebSocket broadcast server engineered in Java for multi-client concurrent
+                                message transmission, connection pooling, graceful heartbeat checks, and error recovery.
+                            </p>
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>WebSockets</span>
+                                <span>Socket Programming</span>
+                                <span>CLI</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn-primary" onclick="openProjectModal('broadcast')">
+                                    <span>Architecture Details</span>
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noreferrer" class="btn-secondary"
+                                    title="View Source Code">
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 3D Physics Lab -->
+        <section class="section sandbox-section" id="sandbox">
+            <div class="section-container">
+                <div class="section-header center-header">
+                    <span class="section-tag">Interactive Experiment</span>
+                    <h2 class="section-heading">Kinetic Physics Sandbox</h2>
+                    <p class="section-subtitle">An in-browser 2D physics simulation. Spawn spheres or boxes, tweak
+                        gravity, and click-and-drag to fling dynamic bodies.</p>
+                </div>
+
+                <div class="card-surface sandbox-card">
+                    <div class="sandbox-header-controls">
+                        <div class="btn-group">
+                            <button class="tool-btn active" id="btnSpawnBall">Spheres</button>
+                            <button class="tool-btn" id="btnSpawnBox">Boxes</button>
+                            <button class="tool-btn" id="btnExplode">Shockwave</button>
+                            <button class="tool-btn danger" id="btnClearSandbox">Reset</button>
+                        </div>
+                        <div class="slider-group">
+                            <div class="slider-unit">
+                                <label for="gravitySlider">Gravity</label>
+                                <input type="range" id="gravitySlider" min="-10" max="25" value="9.8" step="0.5">
+                                <span id="gravityVal">9.8 m/s²</span>
+                            </div>
+                            <div class="slider-unit">
+                                <label for="bounceSlider">Elasticity</label>
+                                <input type="range" id="bounceSlider" min="0.1" max="1.0" value="0.75" step="0.05">
+                                <span id="bounceVal">0.75</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clean canvas arena -->
+                    <div class="sandbox-canvas-wrapper">
+                        <canvas id="physicsCanvas"></canvas>
+                    </div>
+
+                    <!-- Clean Status Bar Placed Outside and Below Canvas -->
+                    <div class="sandbox-footer-hud">
+                        <div class="hud-item">
+                            <span class="material-symbols-outlined icon-mini">bubble_chart</span>
+                            <span>Active Bodies: <strong id="bodyCount">0</strong></span>
+                        </div>
+                        <div class="hud-item hint">
+                            <span class="material-symbols-outlined icon-mini">pan_tool</span>
+                            <span>Click & drag inside arena to fling objects with momentum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Contact -->
+        <section class="section contact-section" id="contact">
+            <div class="section-container">
+                <div class="card-surface contact-card">
+                    <div class="contact-header-content">
+                        <span class="section-tag">Get In Touch</span>
+                        <h2 class="contact-title">Let's build something great together.</h2>
+                        <p class="contact-subtitle">
+                            Whether you have an opportunity, a project proposal, or just want to connect, feel free to
+                            send a message.
+                        </p>
+                    </div>
+
+                    <form id="contactForm" class="clean-form" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms Access Key: Replace YOUR_ACCESS_KEY_HERE with your free key from web3forms.com -->
+                        <input type="hidden" name="access_key" id="web3formsKey"
+                            value="e221638e-2538-4e95-9084-e364a2c0777d" />
+                        <input type="hidden" name="subject" value="New Portfolio Contact Message from Sharad.dev" />
+                        <input type="hidden" name="from_name" value="Sharad Portfolio Website" />
+
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="callerName">Your Name</label>
+                                <input type="text" id="callerName" name="name" required placeholder="Alex Mercer"
+                                    autocomplete="off" />
+                            </div>
+                            <div class="form-field">
+                                <label for="callerEmail">Your Email</label>
+                                <input type="email" id="callerEmail" name="email" required
+                                    placeholder="alex@company.com" autocomplete="off" />
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="callerMessage">Message</label>
+                            <textarea id="callerMessage" name="message" rows="5" required
+                                placeholder="Write your message here..."></textarea>
+                        </div>
+
+                        <div class="form-bottom-row">
+                            <div class="form-feedback" id="formStatus"></div>
+                            <button type="submit" class="btn-primary-lg" id="submitBtn">
+                                <span>Send Message</span>
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <span class="footer-brand-title">Sharad Gholse</span>
+                    <span class="footer-copyright">© 2026 Sharad Gholse.</span>
+                </div>
+                <div class="footer-links-list">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modal Dialog -->
+    <div class="modal-backdrop" id="projectModal">
+        <div class="modal-card card-surface">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-tag" id="modalTag">System Architecture</span>
+                    <h3 class="modal-title" id="modalTitle">Project Blueprint</h3>
+                </div>
+                <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Injected dynamically via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Runtime -->
+    <script src="script.js"></script>
+</body>
+
+</html>
