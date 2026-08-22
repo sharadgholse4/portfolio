@@ -1,0 +1,36 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Editor & IDE Directories
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node & Package Managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Build & Temporary Outputs
+dist/
+build/
+out/
+.cache/
+*.log

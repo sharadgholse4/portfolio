@@ -20,6 +20,9 @@
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+    <!-- Devicon CDN for Official Tech Logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -120,10 +123,6 @@
                         <span>LinkedIn</span>
                     </a>
                 </div>
-
-                <div class="hero-hint">
-                    <span>💡 Move cursor to interact with 3D nodes • Click to inject impulse</span>
-                </div>
             </div>
         </section>
 
@@ -204,84 +203,264 @@
             </div>
         </section>
 
-        <!-- Section 3: Technical Skills -->
+        <!-- Section 3: Technical Skills & Interactive Systems Lab -->
         <section class="section skills-section" id="skills">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-tag">Capabilities</span>
-                    <h2 class="section-heading">Technical Skills & Interactive Shader</h2>
-                    <p class="section-subtitle">A comprehensive breakdown of the languages, frameworks, and developer
-                        tools I work with daily.</p>
+                    <span class="section-tag">Capabilities & Systems</span>
+                    <h2 class="section-heading">Technical Skills & Interactive Lab</h2>
+                    <p class="section-subtitle">A live multi-threaded simulator, algorithm visualizer, and 3D neural
+                        tech graph showcasing real-time engineering mastery.</p>
                 </div>
 
                 <div class="skills-layout-grid">
-                    <!-- Left: Categorized Skills -->
+                    <!-- Left: Categorized Skills with Interactive Triggers -->
                     <div class="skills-categories-box">
                         <div class="card-surface skill-cat-card">
-                            <h3 class="cat-title">
-                                <span class="material-symbols-outlined">code</span>
-                                <span>Languages & Frontend</span>
-                            </h3>
+                            <div class="cat-header-row">
+                                <h3 class="cat-title">
+                                    <span class="material-symbols-outlined">code</span>
+                                    <span>Languages & Frontend</span>
+                                </h3>
+                                <span class="cat-count">5 Tools</span>
+                            </div>
                             <div class="tags-cluster">
-                                <span class="tag-pill">C++</span>
-                                <span class="tag-pill">Java</span>
-                                <span class="tag-pill">React</span>
-                                <span class="tag-pill">JavaScript</span>
-                                <span class="tag-pill">HTML5 & CSS3</span>
-                                <span class="tag-pill">PHP</span>
+                                <button class="tag-pill interactive-tag active" data-skill="cpp" type="button">
+                                    <i class="devicon-cplusplus-plain colored skill-icon"></i>
+                                    <span>C++</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="java" type="button">
+                                    <i class="devicon-java-plain colored skill-icon"></i>
+                                    <span>Java</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="react" type="button">
+                                    <i class="devicon-react-original colored skill-icon"></i>
+                                    <span>React</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="javascript" type="button">
+                                    <i class="devicon-javascript-plain colored skill-icon"></i>
+                                    <span>JavaScript</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="htmlcss" type="button">
+                                    <i class="devicon-html5-plain colored skill-icon"></i>
+                                    <span>HTML5 & CSS3</span>
+                                </button>
                             </div>
                         </div>
 
                         <div class="card-surface skill-cat-card">
-                            <h3 class="cat-title">
-                                <span class="material-symbols-outlined">psychology</span>
-                                <span>Core Computer Science</span>
-                            </h3>
+                            <div class="cat-header-row">
+                                <h3 class="cat-title">
+                                    <span class="material-symbols-outlined">psychology</span>
+                                    <span>Core Computer Science</span>
+                                </h3>
+                                <span class="cat-count">5 Domains</span>
+                            </div>
                             <div class="tags-cluster">
-                                <span class="tag-pill">Data Structures & Algorithms</span>
-                                <span class="tag-pill">Object-Oriented Programming (OOP)</span>
-                                <span class="tag-pill">Socket Programming</span>
-                                <span class="tag-pill">System Architecture</span>
-                                <span class="tag-pill">Debugging & SDLC</span>
+                                <button class="tag-pill interactive-tag" data-skill="dsa" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-cyan">account_tree</span>
+                                    <span>Data Structures & Algorithms</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="oop" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-purple">category</span>
+                                    <span>Object-Oriented Programming</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="sockets" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-emerald">lan</span>
+                                    <span>Socket Programming</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="architecture" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-amber">architecture</span>
+                                    <span>System Architecture</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="debugging" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-rose">bug_report</span>
+                                    <span>Debugging & SDLC</span>
+                                </button>
                             </div>
                         </div>
 
                         <div class="card-surface skill-cat-card">
-                            <h3 class="cat-title">
-                                <span class="material-symbols-outlined">dataset</span>
-                                <span>Databases & Tooling</span>
-                            </h3>
+                            <div class="cat-header-row">
+                                <h3 class="cat-title">
+                                    <span class="material-symbols-outlined">dataset</span>
+                                    <span>Databases & Tooling</span>
+                                </h3>
+                                <span class="cat-count">6 Systems</span>
+                            </div>
                             <div class="tags-cluster">
-                                <span class="tag-pill">SQLite</span>
-                                <span class="tag-pill">PostgreSQL</span>
-                                <span class="tag-pill">MySQL</span>
-                                <span class="tag-pill">WebSockets</span>
-                                <span class="tag-pill">Git & GitHub</span>
-                                <span class="tag-pill">VS Code</span>
+                                <button class="tag-pill interactive-tag" data-skill="sqlite" type="button">
+                                    <i class="devicon-sqlite-plain colored skill-icon"></i>
+                                    <span>SQLite</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="postgres" type="button">
+                                    <i class="devicon-postgresql-plain colored skill-icon"></i>
+                                    <span>PostgreSQL</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="mysql" type="button">
+                                    <i class="devicon-mysql-plain colored skill-icon"></i>
+                                    <span>MySQL</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="websockets" type="button">
+                                    <span class="material-symbols-outlined skill-icon color-cyan">sensors</span>
+                                    <span>WebSockets</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="git" type="button">
+                                    <i class="devicon-git-plain colored skill-icon"></i>
+                                    <span>Git & GitHub</span>
+                                </button>
+                                <button class="tag-pill interactive-tag" data-skill="vscode" type="button">
+                                    <i class="devicon-vscode-plain colored skill-icon"></i>
+                                    <span>VS Code</span>
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: WebGL GLSL Shader Card -->
-                    <div class="card-surface shader-card">
-                        <div class="shader-canvas-box">
-                            <canvas id="shaderCanvas"></canvas>
+                    <!-- Right: Next-Gen Cybernetic Systems Lab Deck -->
+                    <div class="card-surface matrix-deck-card">
+                        <!-- Deck Header & Mode Switcher -->
+                        <div class="deck-header">
+                            <div class="deck-mode-tabs" role="tablist">
+                                <button class="deck-tab-btn active" id="tabCosmos" data-mode="cosmos" type="button"
+                                    title="3D Neural Skill Graph">
+                                    <span class="material-symbols-outlined tab-icon">orbit</span>
+                                    <span class="tab-label">3D Cosmos</span>
+                                </button>
+                                <button class="deck-tab-btn" id="tabSockets" data-mode="sockets" type="button"
+                                    title="Live Concurrency & Socket Streamer">
+                                    <span class="material-symbols-outlined tab-icon">hub</span>
+                                    <span class="tab-label">Sockets</span>
+                                </button>
+                                <button class="deck-tab-btn" id="tabAlgorithms" data-mode="algorithms" type="button"
+                                    title="Real-Time Algorithm Engine">
+                                    <span class="material-symbols-outlined tab-icon">speed</span>
+                                    <span class="tab-label">Algorithms</span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="shader-controls-bar">
-                            <div class="slider-control">
-                                <label for="shaderSpeed">Speed</label>
-                                <input type="range" id="shaderSpeed" min="0.2" max="3.0" step="0.1" value="1.0">
-                                <span id="speedVal">1.0x</span>
+
+                        <!-- Unobstructed 100% Visual Canvas Area -->
+                        <div class="deck-canvas-box" id="deckCanvasBox">
+                            <canvas id="matrixCanvas"></canvas>
+                        </div>
+
+                        <!-- Mode Action Controls Toolbar -->
+                        <div class="deck-controls-toolbar">
+                            <!-- Cosmos Mode Controls -->
+                            <div class="mode-controls" id="controlsCosmos">
+                                <div class="control-row">
+                                    <button class="deck-action-btn" id="btnPulseCosmos" type="button">
+                                        <span class="material-symbols-outlined">flare</span>
+                                        <span>Detonate Shockwave</span>
+                                    </button>
+                                    <button class="deck-action-btn" id="btnResetCosmos" type="button">
+                                        <span class="material-symbols-outlined">restart_alt</span>
+                                        <span>Reset View</span>
+                                    </button>
+                                    <div class="control-slider-inline">
+                                        <label for="cosmosForce">Force Field</label>
+                                        <input type="range" id="cosmosForce" min="0.5" max="2.5" step="0.1" value="1.0">
+                                        <span id="cosmosForceVal">1.0x</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="slider-control">
-                                <label for="shaderChaos">Turbulence</label>
-                                <input type="range" id="shaderChaos" min="1.0" max="8.0" step="0.5" value="3.5">
-                                <span id="chaosVal">3.5</span>
+
+                            <!-- Sockets Mode Controls -->
+                            <div class="mode-controls hidden" id="controlsSockets">
+                                <div class="control-row">
+                                    <button class="deck-action-btn primary" id="btnSendPacket" type="button">
+                                        <span class="material-symbols-outlined">send</span>
+                                        <span>Send Packet</span>
+                                    </button>
+                                    <button class="deck-action-btn" id="btnBroadcastPacket" type="button">
+                                        <span class="material-symbols-outlined">cell_tower</span>
+                                        <span>Broadcast</span>
+                                    </button>
+                                    <button class="deck-action-btn warning" id="btnSpikeLoad" type="button">
+                                        <span class="material-symbols-outlined">bolt</span>
+                                        <span>1000 Req/s Spike</span>
+                                    </button>
+                                    <div class="socket-stat-box">
+                                        <span>RTT: <strong id="socketRtt">0.42 ms</strong></span>
+                                        <span>Pkts: <strong id="socketPktCount">0</strong></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="preset-buttons-row">
-                                <button class="preset-chip active" id="btnQuantum">Sapphire</button>
-                                <button class="preset-chip" id="btnPlasma">Warm Amber</button>
-                                <button class="preset-chip" id="btnCosmic">Seafoam</button>
+
+                            <!-- Algorithms Mode Controls -->
+                            <div class="mode-controls hidden" id="controlsAlgorithms">
+                                <div class="control-row">
+                                    <div class="algo-select-group">
+                                        <button class="algo-chip active" id="btnAlgoQuicksort"
+                                            type="button">Quicksort</button>
+                                        <button class="algo-chip" id="btnAlgoDijkstra" type="button">Dijkstra
+                                            Pathfinder</button>
+                                        <button class="algo-chip" id="btnAlgoBTree" type="button">B-Tree Cache</button>
+                                    </div>
+                                </div>
+                                <div class="control-row secondary-algo-row">
+                                    <button class="deck-action-btn primary" id="btnRunAlgo" type="button">
+                                        <span class="material-symbols-outlined" id="algoPlayIcon">play_arrow</span>
+                                        <span id="algoPlayText">Run</span>
+                                    </button>
+                                    <button class="deck-action-btn" id="btnRandomizeAlgo" type="button">
+                                        <span class="material-symbols-outlined">shuffle</span>
+                                        <span>Randomize</span>
+                                    </button>
+                                    <div class="control-slider-inline">
+                                        <label for="algoSpeedSlider">Clock</label>
+                                        <input type="range" id="algoSpeedSlider" min="1" max="10" step="1" value="6">
+                                        <span id="algoSpeedVal">6x</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dedicated Telemetry / Architecture Inspector Module (Separated & Animated) -->
+                        <div class="deck-inspector-card" id="deckInspector">
+                            <div class="inspector-card-glow-edge"></div>
+                            <div class="inspector-header">
+                                <div class="inspector-badge-row">
+                                    <div class="inspector-cat-wrap">
+                                        <span class="inspector-category-icon material-symbols-outlined"
+                                            id="inspCategoryIcon">terminal</span>
+                                        <span class="inspector-chip" id="inspCategory">Systems & Low-Level</span>
+                                    </div>
+                                    <span class="inspector-status" id="inspStatus">● HARDWARE ACCELERATED</span>
+                                </div>
+                                <div class="inspector-title-row">
+                                    <span class="inspector-tech-logo" id="inspTechLogo">
+                                        <i class="devicon-cplusplus-plain colored"></i>
+                                    </span>
+                                    <h4 class="inspector-title" id="inspTitle">C++ (ISO Standard)</h4>
+                                </div>
+                            </div>
+                            <p class="inspector-desc" id="inspDesc">High-performance systems programming with direct
+                                memory control, RAII concurrency, and zero-cost abstractions.</p>
+                            <div class="inspector-metrics-grid" id="inspMetrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">PARADIGM</span>
+                                    <span class="metric-val" id="inspMetric1">Procedural / OOP</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">PERFORMANCE</span>
+                                    <span class="metric-val" id="inspMetric2">Direct Hardware</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">CONCURRENCY</span>
+                                    <span class="metric-val" id="inspMetric3">std::thread / Posix</span>
+                                </div>
+                            </div>
+                            <div class="inspector-code-wrap">
+                                <div class="inspector-code-snippet" id="inspCode">
+                                    <code>std::unique_ptr&lt;SocketServer&gt; srv = std::make_unique&lt;SocketServer&gt;(8080);</code>
+                                </div>
+                                <button class="code-copy-btn" id="btnCopySnippet" type="button"
+                                    title="Copy Code Snippet">
+                                    <span class="material-symbols-outlined icon-copy">content_copy</span>
+                                    <span class="copy-label">Copy</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -379,7 +558,7 @@
             <div class="section-container">
                 <div class="section-header center-header">
                     <span class="section-tag">Interactive Experiment</span>
-                    <h2 class="section-heading">Kinetic Physics Sandbox</h2>
+                    <h2 class="section-heading">Sandbox</h2>
                     <p class="section-subtitle">An in-browser 2D physics simulation. Spawn spheres or boxes, tweak
                         gravity, and click-and-drag to fling dynamic bodies.</p>
                 </div>
@@ -387,21 +566,41 @@
                 <div class="card-surface sandbox-card">
                     <div class="sandbox-header-controls">
                         <div class="btn-group">
-                            <button class="tool-btn active" id="btnSpawnBall">Spheres</button>
-                            <button class="tool-btn" id="btnSpawnBox">Boxes</button>
-                            <button class="tool-btn" id="btnExplode">Shockwave</button>
-                            <button class="tool-btn danger" id="btnClearSandbox">Reset</button>
+                            <button class="tool-btn active" id="btnSpawnBall" type="button">
+                                <span class="material-symbols-outlined icon-mini">radio_button_checked</span>
+                                <span>Spheres</span>
+                            </button>
+                            <button class="tool-btn" id="btnSpawnBox" type="button">
+                                <span class="material-symbols-outlined icon-mini">square</span>
+                                <span>Boxes</span>
+                            </button>
+                            <button class="tool-btn" id="btnVortex" type="button">
+                                <span class="material-symbols-outlined icon-mini">cyclone</span>
+                                <span>Gravity Vortex</span>
+                            </button>
+                            <button class="tool-btn" id="btnZeroG" type="button">
+                                <span class="material-symbols-outlined icon-mini">rocket_launch</span>
+                                <span>Zero-G</span>
+                            </button>
+                            <button class="tool-btn" id="btnExplode" type="button">
+                                <span class="material-symbols-outlined icon-mini">flare</span>
+                                <span>Shockwave</span>
+                            </button>
+                            <button class="tool-btn danger" id="btnClearSandbox" type="button">
+                                <span class="material-symbols-outlined icon-mini">restart_alt</span>
+                                <span>Reset</span>
+                            </button>
                         </div>
                         <div class="slider-group">
                             <div class="slider-unit">
                                 <label for="gravitySlider">Gravity</label>
-                                <input type="range" id="gravitySlider" min="-10" max="25" value="9.8" step="0.5">
+                                <input type="range" id="gravitySlider" min="-15" max="30" value="9.8" step="0.5">
                                 <span id="gravityVal">9.8 m/s²</span>
                             </div>
                             <div class="slider-unit">
                                 <label for="bounceSlider">Elasticity</label>
-                                <input type="range" id="bounceSlider" min="0.1" max="1.0" value="0.75" step="0.05">
-                                <span id="bounceVal">0.75</span>
+                                <input type="range" id="bounceSlider" min="0.1" max="1.0" value="0.80" step="0.05">
+                                <span id="bounceVal">0.80</span>
                             </div>
                         </div>
                     </div>
@@ -414,12 +613,12 @@
                     <!-- Clean Status Bar Placed Outside and Below Canvas -->
                     <div class="sandbox-footer-hud">
                         <div class="hud-item">
-                            <span class="material-symbols-outlined icon-mini">bubble_chart</span>
+                            <span class="material-symbols-outlined icon-mini color-cyan">bubble_chart</span>
                             <span>Active Bodies: <strong id="bodyCount">0</strong></span>
                         </div>
-                        <div class="hud-item hint">
-                            <span class="material-symbols-outlined icon-mini">pan_tool</span>
-                            <span>Click & drag inside arena to fling objects with momentum</span>
+                        <div class="hud-item">
+                            <span class="material-symbols-outlined icon-mini color-emerald">speed</span>
+                            <span>Physics Solver: <strong id="arenaStatus">60 Hz Active</strong></span>
                         </div>
                     </div>
                 </div>
@@ -449,13 +648,13 @@
                         <div class="form-grid">
                             <div class="form-field">
                                 <label for="callerName">Your Name</label>
-                                <input type="text" id="callerName" name="name" required placeholder="Alex Mercer"
+                                <input type="text" id="callerName" name="name" required placeholder="Your Name"
                                     autocomplete="off" />
                             </div>
                             <div class="form-field">
                                 <label for="callerEmail">Your Email</label>
                                 <input type="email" id="callerEmail" name="email" required
-                                    placeholder="alex@company.com" autocomplete="off" />
+                                    placeholder="yourname@company.com" autocomplete="off" />
                             </div>
                         </div>
 
