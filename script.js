@@ -1004,6 +1004,17 @@
       isDragging = false;
     });
 
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        isDragging = true;
+        lastMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
@@ -1032,6 +1043,34 @@
         canvas.style.cursor = found ? 'pointer' : 'crosshair';
       }
     });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = touch.clientX - rect.left;
+        const mouseY = touch.clientY - rect.top;
+
+        if (isDragging && currentMode === 'cosmos') {
+          const dx = touch.clientX - lastMousePos.x;
+          const dy = touch.clientY - lastMousePos.y;
+          targetRotY += dx * 0.008;
+          targetRotX += dy * 0.008;
+          lastMousePos = { x: touch.clientX, y: touch.clientY };
+        }
+
+        if (currentMode === 'cosmos') {
+          for (let i = cosmosNodes.length - 1; i >= 0; i--) {
+            const n = cosmosNodes[i];
+            const dist = Math.hypot(n.px - mouseX, n.py - mouseY);
+            if (dist < 34 * n.scale) {
+              updateInspector(n.id);
+              break;
+            }
+          }
+        }
+      }
+    }, { passive: true });
 
     canvas.addEventListener('click', (e) => {
       if (currentMode === 'cosmos' && hoveredNode) {
@@ -2430,7 +2469,7 @@
       });
     }
 
-    // Mouse & Slingshot Launcher
+    // Mouse & Touch Slingshot Launcher
     let isDragging = false;
     let dragStart = { x: 0, y: 0 };
     let dragCurrent = { x: 0, y: 0 };
@@ -2450,6 +2489,23 @@
       }
     });
 
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.touches[0].clientX - rect.left;
+        const my = e.touches[0].clientY - rect.top;
+
+        if (spawnMode === 'vortex') {
+          isVortexActive = true;
+          vortexPos = { x: mx, y: my };
+        } else {
+          dragStart = { x: mx, y: my };
+          dragCurrent = { x: mx, y: my };
+          isDragging = true;
+        }
+      }
+    }, { passive: true });
+
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
       const mx = e.clientX - rect.left;
@@ -2460,6 +2516,21 @@
       }
       if (isDragging) {
         dragCurrent = { x: mx, y: my };
+      }
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.touches[0].clientX - rect.left;
+        const my = e.touches[0].clientY - rect.top;
+
+        if (isVortexActive) {
+          vortexPos = { x: mx, y: my };
+        }
+        if (isDragging) {
+          dragCurrent = { x: mx, y: my };
+        }
       }
     }, { passive: true });
 
@@ -2477,6 +2548,31 @@
         const size = Math.min(24, Math.max(13, 14 + Math.hypot(vx, vy) * 0.3));
 
         // Exact cap: Disappear after 60 counts
+        if (bodies.length >= 60) bodies.shift();
+        bodies.push(
+          new PhysicsBody(
+            dragStart.x,
+            dragStart.y,
+            vx,
+            vy,
+            spawnMode === 'box' ? 'box' : 'ball',
+            size,
+            pal
+          )
+        );
+
+        playSynthTone(540, 'triangle', 0.08, 0.04);
+      }
+    });
+
+    window.addEventListener('touchend', (e) => {
+      if (isDragging) {
+        isDragging = false;
+        const vx = (dragStart.x - dragCurrent.x) * 0.14;
+        const vy = (dragStart.y - dragCurrent.y) * 0.14;
+        const pal = NEON_PALETTE[Math.floor(Math.random() * NEON_PALETTE.length)];
+        const size = Math.min(24, Math.max(13, 14 + Math.hypot(vx, vy) * 0.3));
+
         if (bodies.length >= 60) bodies.shift();
         bodies.push(
           new PhysicsBody(
@@ -2839,12 +2935,18 @@ void BroadcastServer::broadcastMessage(const std::string& msg, int senderFd) {
     });
   }
 
-  // Mobile menu toggle
+  // Mobile menu toggle & auto-close on link selection
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
   if (mobileMenuBtn && navMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       navMenu.classList.toggle('mobile-active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('mobile-active');
+      });
     });
   }
 
