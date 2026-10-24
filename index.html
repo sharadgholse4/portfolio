@@ -4,15 +4,30 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sharad Gholse — Software Developer & Creative Engineer</title>
+    <title>Sharad Gholse — CS Engineering Student & Software Developer</title>
     <meta name="description"
-        content="Portfolio of Sharad Gholse — Software Developer specializing in C++, Java, React, and system architecture." />
+        content="Portfolio of Sharad Gholse, a Computer Science Engineering student at G.H. Raisoni College of Engineering, Nagpur. Building full-stack applications, socket servers, and data-driven systems using C++, Java, React, and SQL." />
+    <meta name="author" content="Sharad Gholse" />
+    <meta name="theme-color" content="#0b0d13" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#eae5dc" media="(prefers-color-scheme: light)" />
 
-    <!-- Google Fonts -->
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sharad Gholse   CSE Engineering Student & Software Developer" />
+    <meta property="og:description" content="CSE Engineering student building full-stack applications, socket servers, and algorithm visualizers. C++, Java, React, SQL." />
+    <meta property="og:url" content="https://sharadgholse4.github.io/portfolio/" />
+    <meta property="og:site_name" content="Sharad Gholse Portfolio" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sharad Gholse — CS Engineering Student & Software Developer" />
+    <meta name="twitter:description" content="CS Engineering student building full-stack applications, socket servers, and algorithm visualizers." />
+
+    <!-- Google Fonts: Manrope, Plus Jakarta Sans, Space Grotesk, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -24,10 +39,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <!-- Main Stylesheet (Cache-Busted for Live Deployment) -->
-    <link rel="stylesheet" href="style.css?v=2.0.0" />
+    <link rel="stylesheet" href="style.css?v=3.5.0" />
 </head>
 
-<body class="light-theme">
+<body class="dark-theme">
     <!-- Interactive Ambient Background Aura, Shiny Particles & Textures -->
     <div class="bg-decor-container" aria-hidden="true">
         <canvas id="bgShinyCanvas"></canvas>
@@ -45,12 +60,11 @@
                 <span class="brand-name">Sharad Gholse</span>
             </a>
 
-            <nav class="nav-menu" id="navMenu">
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
                 <a href="#hero" class="nav-link active" data-section="hero">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
                 <a href="#skills" class="nav-link" data-section="skills">Skills</a>
                 <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-                <a href="#sandbox" class="nav-link" data-section="sandbox">3D Lab</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </nav>
 
@@ -84,44 +98,44 @@
 
             <div class="hero-content">
                 <div class="hero-status-tag">
-                    <span class="status-dot"></span>
-                    <span>Available for Software Engineering Roles</span>
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Open to Software Engineering Roles & Internships</span>
                 </div>
 
                 <h1 class="hero-title">
-                    Building resilient software & <span class="text-highlight">modern digital experiences.</span>
+                    Sharad Gholse &mdash; <span class="text-highlight">CS Engineering Student</span>
                 </h1>
 
                 <p class="hero-subtitle">
-                    Hi, I'm <strong>Sharad Gholse</strong>. I specialize in C++, Java, React, Data Structures, and
-                    concurrent network architecture, creating software that balances raw computational performance with
-                    elegant design.
+                    I study Computer Science at <strong>G.H. Raisoni College of Engineering, Nagpur</strong> and build
+                    things with C++, Java, and React. My work focuses on networked systems, database-backed
+                    applications, and writing code that is readable, efficient, and correct.
                 </p>
 
                 <div class="hero-actions">
                     <a href="#projects" class="btn-primary-lg">
-                        <span>View Projects</span>
-                        <span class="material-symbols-outlined">arrow_downward</span>
+                        <span>View My Work</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
                     </a>
-                    <a href="#contact" class="btn-secondary-lg">
-                        <span>Get In Touch</span>
+                    <a href="https://github.com/sharadgholse4" target="_blank" rel="noreferrer" class="btn-secondary-lg">
+                        <span>GitHub Profile</span>
                     </a>
                 </div>
 
                 <!-- Social Links -->
                 <div class="social-links-row">
-                    <a href="mailto:sharadgholse4@gmail.com" class="social-link-item">
-                        <span class="material-symbols-outlined">mail</span>
-                        <span>Email</span>
+                    <a href="mailto:sharadgholse4@gmail.com" class="social-link-item" aria-label="Send me an email">
+                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        <span>sharadgholse4@gmail.com</span>
                     </a>
                     <a href="https://github.com/sharadgholse4" target="_blank" rel="noreferrer"
-                        class="social-link-item">
-                        <span class="material-symbols-outlined">code</span>
+                        class="social-link-item" aria-label="View GitHub profile">
+                        <span class="material-symbols-outlined" aria-hidden="true">code</span>
                         <span>GitHub</span>
                     </a>
                     <a href="https://www.linkedin.com/in/sharad-gholse-5b5546355/" target="_blank" rel="noreferrer"
-                        class="social-link-item">
-                        <span class="material-symbols-outlined">link</span>
+                        class="social-link-item" aria-label="Connect on LinkedIn">
+                        <span class="material-symbols-outlined" aria-hidden="true">link</span>
                         <span>LinkedIn</span>
                     </a>
                 </div>
@@ -507,11 +521,13 @@
                             </div>
                             <div class="project-actions">
                                 <button class="btn-primary" onclick="openProjectModal('ums')">
-                                    <span>Architecture Details</span>
+                                    <span>Architecture Blueprint</span>
+                                    <span class="material-symbols-outlined">account_tree</span>
                                 </button>
                                 <a href="https://github.com/sharadgholse4/university-management-system" target="_blank"
                                     rel="noreferrer" class="btn-secondary" title="View Source Code">
                                     <span>GitHub</span>
+                                    <span class="material-symbols-outlined">north_east</span>
                                 </a>
                             </div>
                         </div>
@@ -542,11 +558,13 @@
                             </div>
                             <div class="project-actions">
                                 <button class="btn-primary" onclick="openProjectModal('broadcast')">
-                                    <span>Architecture Details</span>
+                                    <span>Architecture Blueprint</span>
+                                    <span class="material-symbols-outlined">account_tree</span>
                                 </button>
                                 <a href="https://github.com/sharadgholse4/BroadcastServerProject" target="_blank"
                                     rel="noreferrer" class="btn-secondary" title="View Source Code">
                                     <span>GitHub</span>
+                                    <span class="material-symbols-outlined">north_east</span>
                                 </a>
                             </div>
                         </div>
@@ -555,77 +573,6 @@
             </div>
         </section>
 
-        <!-- Section 5: 3D Physics Lab -->
-        <section class="section sandbox-section" id="sandbox">
-            <div class="section-container">
-                <div class="section-header center-header">
-                    <span class="section-tag">Interactive Experiment</span>
-                    <h2 class="section-heading">Sandbox</h2>
-                    <p class="section-subtitle">An in-browser 2D physics simulation. Spawn spheres or boxes, tweak
-                        gravity, and click-and-drag to fling dynamic bodies.</p>
-                </div>
-
-                <div class="card-surface sandbox-card">
-                    <div class="sandbox-header-controls">
-                        <div class="btn-group">
-                            <button class="tool-btn active" id="btnSpawnBall" type="button">
-                                <span class="material-symbols-outlined icon-mini">radio_button_checked</span>
-                                <span>Spheres</span>
-                            </button>
-                            <button class="tool-btn" id="btnSpawnBox" type="button">
-                                <span class="material-symbols-outlined icon-mini">square</span>
-                                <span>Boxes</span>
-                            </button>
-                            <button class="tool-btn" id="btnVortex" type="button">
-                                <span class="material-symbols-outlined icon-mini">cyclone</span>
-                                <span>Gravity Vortex</span>
-                            </button>
-                            <button class="tool-btn" id="btnZeroG" type="button">
-                                <span class="material-symbols-outlined icon-mini">rocket_launch</span>
-                                <span>Zero-G</span>
-                            </button>
-                            <button class="tool-btn" id="btnExplode" type="button">
-                                <span class="material-symbols-outlined icon-mini">flare</span>
-                                <span>Shockwave</span>
-                            </button>
-                            <button class="tool-btn danger" id="btnClearSandbox" type="button">
-                                <span class="material-symbols-outlined icon-mini">restart_alt</span>
-                                <span>Reset</span>
-                            </button>
-                        </div>
-                        <div class="slider-group">
-                            <div class="slider-unit">
-                                <label for="gravitySlider">Gravity</label>
-                                <input type="range" id="gravitySlider" min="-15" max="30" value="9.8" step="0.5">
-                                <span id="gravityVal">9.8 m/s²</span>
-                            </div>
-                            <div class="slider-unit">
-                                <label for="bounceSlider">Elasticity</label>
-                                <input type="range" id="bounceSlider" min="0.1" max="1.0" value="0.80" step="0.05">
-                                <span id="bounceVal">0.80</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Clean canvas arena -->
-                    <div class="sandbox-canvas-wrapper">
-                        <canvas id="physicsCanvas"></canvas>
-                    </div>
-
-                    <!-- Clean Status Bar Placed Outside and Below Canvas -->
-                    <div class="sandbox-footer-hud">
-                        <div class="hud-item">
-                            <span class="material-symbols-outlined icon-mini color-cyan">bubble_chart</span>
-                            <span>Active Bodies: <strong id="bodyCount">0</strong></span>
-                        </div>
-                        <div class="hud-item">
-                            <span class="material-symbols-outlined icon-mini color-emerald">speed</span>
-                            <span>Physics Solver: <strong id="arenaStatus">60 Hz Active</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Section 6: Contact -->
         <section class="section contact-section" id="contact">
@@ -688,7 +635,9 @@
                 <div class="footer-links-list">
                     <a href="#hero">Home</a>
                     <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
                     <a href="https://github.com/sharadgholse4" target="_blank" rel="noreferrer">GitHub</a>
                     <a href="https://www.linkedin.com/in/sharad-gholse-5b5546355/" target="_blank"
                         rel="noreferrer">LinkedIn</a>
@@ -716,7 +665,7 @@
     </div>
 
     <!-- JavaScript Runtime (Cache-Busted for Live Deployment) -->
-    <script src="script.js?v=2.0.0"></script>
+    <script src="script.js?v=3.5.0"></script>
 </body>
 
 </html>

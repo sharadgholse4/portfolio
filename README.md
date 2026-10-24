@@ -21,14 +21,9 @@
 - **Dynamic Dijkstra Pathfinder**: Randomized source and destination pathfinding across an 8×4 matrix with wave-front node exploration and shortest-path rendering.
 - **B-Tree & Memory Hierarchy**: Visualizes hardware access latencies comparing **L1 Root Cache (<1ns)** against **L2 Child Pages (~3-4ns)**.
 
-### 4. ⚛️ 60–144 FPS Kinetic Physics Particle Sandbox
-- **Semi-Implicit Euler Integrator**: Real-time rigid body simulation with customizable gravity, air drag, and restitution elasticity.
-- **Physics Mechanics**:
-  - **Spheres & Rigid Boxes**: 3D specular domes and glowing quantum core boxes with angular momentum.
-  - **Gravitational Vortex**: Central singularity pull and tangential torque.
-  - **Zero-G Flight & Radial Shockwave**: Weightless momentum physics and impulse blasts.
-  - **Interactive Slingshot**: Drag-and-fling momentum launcher with trajectory prediction arcs.
-  - **Luminous Radiant Auras**: 7 distinct neon cyber palettes with multi-stop radial gradient glows.
+### 4. 📐 System Architecture & Blueprints
+- **Interactive Technical Modals**: Multi-threaded socket architectures, non-blocking I/O routines, and relational database schema designs.
+- **Micro-Interaction System**: Haptic sound synthesizer feedback, smooth hardware-accelerated transitions, and responsive mobile architecture.
 
 ---
 

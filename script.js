@@ -7,7 +7,7 @@
 
   // --- State Configuration ---
   const state = {
-    theme: localStorage.getItem('sg_theme') || 'light',
+    theme: localStorage.getItem('sg_theme') || 'dark',
     audioEnabled: false,
     shaderSpeed: 1.0,
     shaderChaos: 3.5,
@@ -15,7 +15,7 @@
   };
 
   // ==========================================================================
-  // 1. Theme Manager (Warm Light Mode Default + Compact Toggle)
+  // 1. Theme Manager (Dark Charcoal Studio Default + Smooth Toggle)
   // ==========================================================================
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
@@ -95,17 +95,17 @@
 
       draw() {
         const isDark = state.theme === 'dark';
-        const currentAlpha = (Math.sin(this.twinklePhase) * 0.3 + 0.5) * (isDark ? 0.75 : 0.45);
+        const currentAlpha = (Math.sin(this.twinklePhase) * 0.3 + 0.5) * (isDark ? 0.65 : 0.35);
 
-        let color = '#2563eb';
+        let color = '#3b82f6';
         if (isDark) {
-          if (this.hueType === 0) color = '#38bdf8';
-          else if (this.hueType === 1) color = '#818cf8';
-          else color = '#fbbf24';
+          if (this.hueType === 0) color = '#3b82f6';
+          else if (this.hueType === 1) color = '#6366f1';
+          else color = '#94a3b8';
         } else {
           if (this.hueType === 0) color = '#2563eb';
-          else if (this.hueType === 1) color = '#0284c7';
-          else color = '#d97706';
+          else if (this.hueType === 1) color = '#4f46e5';
+          else color = '#64748b';
         }
 
         ctx.beginPath();
@@ -257,16 +257,16 @@
     scene.add(group);
 
     const skillNodes = [
-      { name: 'C++', color: 0x2563eb },
-      { name: 'Java', color: 0x0284c7 },
-      { name: 'React', color: 0x0ea5e9 },
+      { name: 'C++', color: 0x3b82f6 },
+      { name: 'Java', color: 0x6366f1 },
+      { name: 'React', color: 0x38bdf8 },
       { name: 'DSA', color: 0x4f46e5 },
-      { name: 'OOP', color: 0x6366f1 },
-      { name: 'SQLite', color: 0x0d9488 },
-      { name: 'WebSockets', color: 0x10b981 },
-      { name: 'Postgres', color: 0x3b82f6 },
-      { name: 'HTML/CSS', color: 0xd97706 },
-      { name: 'Git', color: 0x818cf8 },
+      { name: 'OOP', color: 0x818cf8 },
+      { name: 'SQLite', color: 0x2563eb },
+      { name: 'WebSockets', color: 0x60a5fa },
+      { name: 'Postgres', color: 0x4338ca },
+      { name: 'HTML/CSS', color: 0x94a3b8 },
+      { name: 'Git', color: 0x64748b },
     ];
 
     const nodes = [];
@@ -276,8 +276,8 @@
       const material = new THREE.MeshPhongMaterial({
         color: item.color,
         emissive: item.color,
-        emissiveIntensity: 0.35,
-        shininess: 70,
+        emissiveIntensity: 0.28,
+        shininess: 80,
       });
 
       const mesh = new THREE.Mesh(geometry, material);
@@ -301,9 +301,9 @@
     });
 
     const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0x2563eb,
+      color: 0x3b82f6,
       transparent: true,
-      opacity: 0.16,
+      opacity: 0.12,
     });
     const lineGeo = new THREE.BufferGeometry();
     const lineMesh = new THREE.LineSegments(lineGeo, lineMaterial);
@@ -918,7 +918,7 @@
 
       if (inspCat) inspCat.textContent = info.category;
       if (inspCatIcon) inspCatIcon.textContent = categoryIconMap[info.category] || 'code';
-      if (inspStatus) inspStatus.textContent = `● ${info.metrics[1] || 'OPTIMIZED'}`;
+      if (inspStatus) inspStatus.textContent = `â— ${info.metrics[1] || 'OPTIMIZED'}`;
       if (inspTitle) inspTitle.textContent = info.name;
       if (inspTechLogo && info.logoHtml) inspTechLogo.innerHTML = info.logoHtml;
       if (inspDesc) inspDesc.textContent = info.desc;
@@ -1898,7 +1898,7 @@
           else if (isTarget) ctx.fillText('T', x + cellSize / 2, y + cellSize / 2);
           else if (isWall) {
             ctx.fillStyle = '#64748b';
-            ctx.fillText('■', x + cellSize / 2, y + cellSize / 2);
+            ctx.fillText('â– ', x + cellSize / 2, y + cellSize / 2);
           } else if (isVisited) {
             ctx.fillStyle = isPathCell ? '#0f172a' : '#93c5fd';
             ctx.fillText(`${dijkstraVisitedMap[idx]}`, x + cellSize / 2, y + cellSize / 2);
@@ -2037,7 +2037,7 @@
       ctx.font = '600 11.5px "JetBrains Mono", monospace';
       ctx.fillStyle = btreeData.searchPhase === 2 ? '#34d399' : '#38bdf8';
       ctx.textAlign = 'center';
-      ctx.fillText(`⚡ L1: ${btreeData.l1Latency} | L2: ${btreeData.l2Latency} | QUERY [Key: ${btreeData.queryKey}] -> ${btreeData.searchPhase === 2 ? targetLabel : 'TRAVERSING...'}`, width / 2, height - 38);
+      ctx.fillText(`âš¡ L1: ${btreeData.l1Latency} | L2: ${btreeData.l2Latency} | QUERY [Key: ${btreeData.queryKey}] -> ${btreeData.searchPhase === 2 ? targetLabel : 'TRAVERSING...'}`, width / 2, height - 38);
       ctx.restore();
     }
 
@@ -2045,745 +2045,6 @@
     requestAnimationFrame(render);
   }
 
-  // ==========================================================================
-  // 5. Kinetic 2D Physics Particle Sandbox (Advanced Cyber Physics Engine)
-  // ==========================================================================
-  function initSandbox() {
-    const canvas = document.getElementById('physicsCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let width = 800;
-    let height = 440;
-    let isVisible = true;
-
-    function resize() {
-      const parent = canvas.parentElement;
-      width = parent?.clientWidth || canvas.clientWidth || 800;
-      height = parent?.clientHeight || canvas.clientHeight || 440;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    if ('IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          isVisible = e.isIntersecting;
-        });
-      }, { threshold: 0.05 });
-      obs.observe(canvas);
-    }
-
-    const bodies = [];
-    const sparks = [];
-    const impactRings = [];
-
-    let spawnMode = 'ball';
-    let gravity = 9.8;
-    let restitution = 0.75;
-    let isZeroG = false;
-    let isVortexActive = false;
-    let vortexPos = { x: 400, y: 220 };
-    let lastSoundTime = 0;
-
-    const NEON_PALETTE = [
-      { fill: '#38bdf8', glow: '#0284c7' }, // 1. Electric Cyan
-      { fill: '#10b981', glow: '#059669' }, // 2. Matrix Emerald
-      { fill: '#a855f7', glow: '#7c3aed' }, // 3. Cyber Purple
-      { fill: '#f59e0b', glow: '#d97706' }, // 4. Solar Gold
-      { fill: '#f43f5e', glow: '#e11d48' }, // 5. Neon Rose
-      { fill: '#06b6d4', glow: '#0891b2' }, // 6. Plasma Aqua
-      { fill: '#ff7828', glow: '#ea580c' }  // 7. Flame Orange
-    ];
-
-    class PhysicsBody {
-      constructor(x, y, vx, vy, type = 'ball', size = 16, palette = NEON_PALETTE[0]) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx;
-        this.vy = vy;
-        this.type = type;
-        this.size = size;
-        this.mass = size;
-        this.palette = palette;
-        this.rotation = Math.random() * Math.PI * 2;
-        this.vRot = (Math.random() - 0.5) * 0.06;
-        this.trail = [];
-      }
-
-      update(dt) {
-        // Stable, smooth force application
-        if (isVortexActive) {
-          const dx = vortexPos.x - this.x;
-          const dy = vortexPos.y - this.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          const force = Math.min(320, 7500 / (dist + 40));
-          const nx = dx / dist;
-          const ny = dy / dist;
-          this.vx += (nx * force - ny * force * 0.35) * dt;
-          this.vy += (ny * force + nx * force * 0.35) * dt;
-        } else if (!isZeroG) {
-          this.vy += gravity * 26 * dt;
-        }
-
-        // Air damping
-        this.vx *= 0.992;
-        this.vy *= 0.992;
-
-        // Speed limit clamp to prevent tunneling
-        const speed = Math.hypot(this.vx, this.vy);
-        if (speed > 16) {
-          const scale = 16 / speed;
-          this.vx *= scale;
-          this.vy *= scale;
-        }
-
-        // Position integration
-        this.x += this.vx * dt * 60;
-        this.y += this.vy * dt * 60;
-        this.rotation += this.vRot;
-
-        // Motion trail effect
-        if (speed > 2.0) {
-          this.trail.push({ x: this.x, y: this.y });
-          if (this.trail.length > 6) this.trail.shift();
-        } else if (this.trail.length > 0) {
-          this.trail.shift();
-        }
-
-        // Arena Boundaries
-        const pad = this.size;
-        if (this.x - pad < 0) {
-          this.x = pad;
-          this.vx = -this.vx * restitution;
-          this.emitCollisionFX(this.x, this.y, Math.abs(this.vx));
-        } else if (this.x + pad > width) {
-          this.x = width - pad;
-          this.vx = -this.vx * restitution;
-          this.emitCollisionFX(this.x, this.y, Math.abs(this.vx));
-        }
-
-        if (this.y - pad < 0) {
-          this.y = pad;
-          this.vy = -this.vy * restitution;
-          this.emitCollisionFX(this.x, this.y, Math.abs(this.vy));
-        } else if (this.y + pad > height) {
-          this.y = height - pad;
-          this.vy = -this.vy * restitution;
-          this.vx *= 0.96; // ground friction
-          this.emitCollisionFX(this.x, this.y, Math.abs(this.vy));
-        }
-      }
-
-      emitCollisionFX(x, y, intensity) {
-        if (intensity > 2.0) {
-          const numSparks = Math.min(7, Math.floor(intensity * 1.0));
-          for (let k = 0; k < numSparks; k++) {
-            const angle = Math.random() * Math.PI * 2;
-            const spd = Math.random() * intensity * 0.85 + 1.2;
-            sparks.push({
-              x,
-              y,
-              vx: Math.cos(angle) * spd,
-              vy: Math.sin(angle) * spd,
-              color: this.palette.fill,
-              alpha: 1.0,
-              size: Math.random() * 2.4 + 1
-            });
-          }
-
-          if (intensity > 3.8) {
-            impactRings.push({
-              x,
-              y,
-              r: this.size * 0.8,
-              maxR: this.size * 2.2,
-              color: this.palette.fill,
-              alpha: 0.85
-            });
-          }
-
-          const now = performance.now();
-          if (now - lastSoundTime > 75) {
-            lastSoundTime = now;
-            const freq = Math.min(1000, 220 + (28 - this.size) * 30 + intensity * 20);
-            playSynthTone(freq, 'sine', 0.04, 0.015);
-          }
-        }
-      }
-
-      draw(c) {
-        // 1. Multi-segment Glowing Motion Trail Ribbon
-        if (this.trail.length > 1) {
-          c.save();
-          c.beginPath();
-          c.moveTo(this.trail[0].x, this.trail[0].y);
-          for (let i = 1; i < this.trail.length; i++) {
-            c.lineTo(this.trail[i].x, this.trail[i].y);
-          }
-          c.strokeStyle = this.palette.fill;
-          c.lineWidth = this.size * 0.8;
-          c.lineCap = 'round';
-          c.globalAlpha = 0.35;
-          c.stroke();
-          c.restore();
-        }
-
-        c.save();
-        c.translate(this.x, this.y);
-        c.rotate(this.rotation);
-
-        if (this.type === 'ball') {
-          // Radiant Glowing Outer Aura (Radial Gradient)
-          const auraGrad = c.createRadialGradient(0, 0, this.size * 0.6, 0, 0, this.size * 2.1);
-          auraGrad.addColorStop(0, this.palette.fill);
-          auraGrad.addColorStop(0.45, this.palette.glow);
-          auraGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-          c.beginPath();
-          c.arc(0, 0, this.size * 2.1, 0, Math.PI * 2);
-          c.fillStyle = auraGrad;
-          c.globalAlpha = 0.60;
-          c.fill();
-          c.globalAlpha = 1.0;
-
-          // Vibrant 3D Specular Ball Body
-          const ballGrad = c.createRadialGradient(-this.size * 0.35, -this.size * 0.35, this.size * 0.08, 0, 0, this.size);
-          ballGrad.addColorStop(0, '#ffffff');
-          ballGrad.addColorStop(0.35, this.palette.fill);
-          ballGrad.addColorStop(0.85, this.palette.glow);
-          ballGrad.addColorStop(1, '#050a14');
-
-          c.beginPath();
-          c.arc(0, 0, this.size, 0, Math.PI * 2);
-          c.fillStyle = ballGrad;
-          c.fill();
-
-          // High-Tech Specular Rim
-          c.beginPath();
-          c.arc(0, 0, this.size, 0, Math.PI * 2);
-          c.strokeStyle = 'rgba(255, 255, 255, 0.65)';
-          c.lineWidth = 1.2;
-          c.stroke();
-        } else {
-          // Radiant Glowing Outer Aura
-          const boxAuraGrad = c.createRadialGradient(0, 0, this.size * 0.6, 0, 0, this.size * 2.2);
-          boxAuraGrad.addColorStop(0, this.palette.fill);
-          boxAuraGrad.addColorStop(0.5, this.palette.glow);
-          boxAuraGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-          c.beginPath();
-          c.arc(0, 0, this.size * 2.2, 0, Math.PI * 2);
-          c.fillStyle = boxAuraGrad;
-          c.globalAlpha = 0.55;
-          c.fill();
-          c.globalAlpha = 1.0;
-
-          // Cyber Kinetic Box Shell
-          c.beginPath();
-          if (c.roundRect) {
-            c.roundRect(-this.size, -this.size, this.size * 2, this.size * 2, 4);
-          } else {
-            c.rect(-this.size, -this.size, this.size * 2, this.size * 2);
-          }
-          c.fillStyle = '#080d18';
-          c.fill();
-
-          c.strokeStyle = this.palette.fill;
-          c.lineWidth = 2.2;
-          c.stroke();
-
-          // Corner Energy Reticle
-          c.strokeStyle = 'rgba(255, 255, 255, 0.7)';
-          c.lineWidth = 1;
-          c.stroke();
-
-          // Dual-Tier Luminous Core
-          c.beginPath();
-          c.arc(0, 0, this.size * 0.4, 0, Math.PI * 2);
-          c.fillStyle = this.palette.fill;
-          c.fill();
-
-          c.beginPath();
-          c.arc(0, 0, this.size * 0.18, 0, Math.PI * 2);
-          c.fillStyle = '#ffffff';
-          c.fill();
-        }
-
-        c.restore();
-      }
-    }
-
-    function spawnInitialBodies() {
-      bodies.length = 0;
-      for (let i = 0; i < 20; i++) {
-        const pal = NEON_PALETTE[i % NEON_PALETTE.length];
-        bodies.push(
-          new PhysicsBody(
-            Math.random() * (width - 160) + 80,
-            Math.random() * (height / 2.2) + 40,
-            (Math.random() - 0.5) * 4,
-            (Math.random() - 0.5) * 4,
-            i % 3 === 0 ? 'box' : 'ball',
-            14 + Math.random() * 6,
-            pal
-          )
-        );
-      }
-    }
-    spawnInitialBodies();
-
-    // Toolbar Control Buttons
-    const btnBall = document.getElementById('btnSpawnBall');
-    const btnBox = document.getElementById('btnSpawnBox');
-    const btnVortex = document.getElementById('btnVortex');
-    const btnZeroG = document.getElementById('btnZeroG');
-    const btnExplode = document.getElementById('btnExplode');
-    const btnClear = document.getElementById('btnClearSandbox');
-
-    const modeButtons = [btnBall, btnBox, btnVortex, btnZeroG].filter(Boolean);
-
-    function setActiveModeBtn(activeBtn) {
-      modeButtons.forEach((b) => b.classList.remove('active'));
-      if (activeBtn) activeBtn.classList.add('active');
-    }
-
-    if (btnBall) {
-      btnBall.addEventListener('click', () => {
-        spawnMode = 'ball';
-        isVortexActive = false;
-        setActiveModeBtn(btnBall);
-        playSynthTone(580, 'sine', 0.06, 0.03);
-      });
-    }
-
-    if (btnBox) {
-      btnBox.addEventListener('click', () => {
-        spawnMode = 'box';
-        isVortexActive = false;
-        setActiveModeBtn(btnBox);
-        playSynthTone(640, 'sine', 0.06, 0.03);
-      });
-    }
-
-    if (btnVortex) {
-      btnVortex.addEventListener('click', () => {
-        isVortexActive = !isVortexActive;
-        vortexPos = { x: width / 2, y: height / 2 };
-        if (isVortexActive) {
-          setActiveModeBtn(btnVortex);
-          playSynthTone(780, 'triangle', 0.12, 0.04);
-        } else {
-          setActiveModeBtn(btnBall);
-          spawnMode = 'ball';
-        }
-      });
-    }
-
-    if (btnZeroG) {
-      btnZeroG.addEventListener('click', () => {
-        isZeroG = !isZeroG;
-        const gravSlider = document.getElementById('gravitySlider');
-        const gravVal = document.getElementById('gravityVal');
-        if (isZeroG) {
-          btnZeroG.classList.add('active');
-          if (gravSlider) gravSlider.value = 0;
-          if (gravVal) gravVal.textContent = '0.0 m/s² (Zero-G)';
-          gravity = 0;
-          bodies.forEach((b) => {
-            b.vx += (Math.random() - 0.5) * 6;
-            b.vy += (Math.random() - 0.5) * 6;
-          });
-          playSynthTone(880, 'sine', 0.15, 0.05);
-        } else {
-          btnZeroG.classList.remove('active');
-          gravity = 9.8;
-          if (gravSlider) gravSlider.value = 9.8;
-          if (gravVal) gravVal.textContent = '9.8 m/s²';
-          playSynthTone(440, 'sine', 0.08, 0.03);
-        }
-      });
-    }
-
-    if (btnExplode) {
-      btnExplode.addEventListener('click', () => {
-        const cx = width / 2;
-        const cy = height / 2;
-        bodies.forEach((b) => {
-          const dx = b.x - cx;
-          const dy = b.y - cy;
-          const dist = Math.hypot(dx, dy) || 1;
-          const power = Math.max(12, 32 - dist * 0.06);
-          b.vx += (dx / dist) * power;
-          b.vy += (dy / dist) * power - 6;
-          b.emitCollisionFX(b.x, b.y, power * 0.4);
-        });
-
-        impactRings.push({
-          x: cx,
-          y: cy,
-          r: 10,
-          maxR: Math.max(width, height) * 0.5,
-          color: '#38bdf8',
-          alpha: 0.8
-        });
-
-        playSynthTone(220, 'sawtooth', 0.2, 0.06);
-      });
-    }
-
-    if (btnClear) {
-      btnClear.addEventListener('click', () => {
-        bodies.length = 0;
-        sparks.length = 0;
-        impactRings.length = 0;
-        isVortexActive = false;
-        setActiveModeBtn(btnBall);
-        spawnMode = 'ball';
-        playSynthTone(180, 'sine', 0.08, 0.03);
-      });
-    }
-
-    // Sliders
-    const gravSlider = document.getElementById('gravitySlider');
-    const gravVal = document.getElementById('gravityVal');
-    if (gravSlider) {
-      gravSlider.addEventListener('input', (e) => {
-        gravity = parseFloat(e.target.value);
-        isZeroG = Math.abs(gravity) < 0.1;
-        if (btnZeroG) btnZeroG.classList.toggle('active', isZeroG);
-        if (gravVal) gravVal.textContent = `${gravity.toFixed(1)} m/s²`;
-      });
-    }
-
-    const bounceSlider = document.getElementById('bounceSlider');
-    const bounceVal = document.getElementById('bounceVal');
-    if (bounceSlider) {
-      bounceSlider.addEventListener('input', (e) => {
-        restitution = parseFloat(e.target.value);
-        if (bounceVal) bounceVal.textContent = restitution.toFixed(2);
-      });
-    }
-
-    // Mouse & Touch Slingshot Launcher
-    let isDragging = false;
-    let dragStart = { x: 0, y: 0 };
-    let dragCurrent = { x: 0, y: 0 };
-
-    canvas.addEventListener('mousedown', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      if (spawnMode === 'vortex') {
-        isVortexActive = true;
-        vortexPos = { x: mx, y: my };
-      } else {
-        dragStart = { x: mx, y: my };
-        dragCurrent = { x: mx, y: my };
-        isDragging = true;
-      }
-    });
-
-    canvas.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        const rect = canvas.getBoundingClientRect();
-        const mx = e.touches[0].clientX - rect.left;
-        const my = e.touches[0].clientY - rect.top;
-
-        if (spawnMode === 'vortex') {
-          isVortexActive = true;
-          vortexPos = { x: mx, y: my };
-        } else {
-          dragStart = { x: mx, y: my };
-          dragCurrent = { x: mx, y: my };
-          isDragging = true;
-        }
-      }
-    }, { passive: true });
-
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      if (isVortexActive) {
-        vortexPos = { x: mx, y: my };
-      }
-      if (isDragging) {
-        dragCurrent = { x: mx, y: my };
-      }
-    }, { passive: true });
-
-    canvas.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) {
-        const rect = canvas.getBoundingClientRect();
-        const mx = e.touches[0].clientX - rect.left;
-        const my = e.touches[0].clientY - rect.top;
-
-        if (isVortexActive) {
-          vortexPos = { x: mx, y: my };
-        }
-        if (isDragging) {
-          dragCurrent = { x: mx, y: my };
-        }
-      }
-    }, { passive: true });
-
-    window.addEventListener('mouseup', (e) => {
-      if (isDragging) {
-        isDragging = false;
-        const rect = canvas.getBoundingClientRect();
-        const endX = e.clientX - rect.left;
-        const endY = e.clientY - rect.top;
-
-        const vx = (dragStart.x - endX) * 0.14;
-        const vy = (dragStart.y - endY) * 0.14;
-        // Randomize from all 7 vibrant neon palette colors
-        const pal = NEON_PALETTE[Math.floor(Math.random() * NEON_PALETTE.length)];
-        const size = Math.min(24, Math.max(13, 14 + Math.hypot(vx, vy) * 0.3));
-
-        // Exact cap: Disappear after 60 counts
-        if (bodies.length >= 60) bodies.shift();
-        bodies.push(
-          new PhysicsBody(
-            dragStart.x,
-            dragStart.y,
-            vx,
-            vy,
-            spawnMode === 'box' ? 'box' : 'ball',
-            size,
-            pal
-          )
-        );
-
-        playSynthTone(540, 'triangle', 0.08, 0.04);
-      }
-    });
-
-    window.addEventListener('touchend', (e) => {
-      if (isDragging) {
-        isDragging = false;
-        const vx = (dragStart.x - dragCurrent.x) * 0.14;
-        const vy = (dragStart.y - dragCurrent.y) * 0.14;
-        const pal = NEON_PALETTE[Math.floor(Math.random() * NEON_PALETTE.length)];
-        const size = Math.min(24, Math.max(13, 14 + Math.hypot(vx, vy) * 0.3));
-
-        if (bodies.length >= 60) bodies.shift();
-        bodies.push(
-          new PhysicsBody(
-            dragStart.x,
-            dragStart.y,
-            vx,
-            vy,
-            spawnMode === 'box' ? 'box' : 'ball',
-            size,
-            pal
-          )
-        );
-
-        playSynthTone(540, 'triangle', 0.08, 0.04);
-      }
-    });
-
-    // Main Simulation Loop
-    let lastTime = performance.now();
-    const bodyCountElem = document.getElementById('bodyCount');
-    const arenaStatusElem = document.getElementById('arenaStatus');
-    let vortexAngle = 0;
-
-    function loop(now) {
-      requestAnimationFrame(loop);
-      if (!isVisible || document.hidden) {
-        lastTime = now;
-        return;
-      }
-
-      const dt = Math.min((now - lastTime) / 1000, 0.035);
-      lastTime = now;
-
-      ctx.clearRect(0, 0, width, height);
-
-      // Arena Floor Grid
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.035)';
-      ctx.lineWidth = 1;
-      const arenaGrid = 36;
-      for (let x = 0; x < width; x += arenaGrid) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += arenaGrid) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Vortex Singularity
-      if (isVortexActive) {
-        ctx.save();
-        vortexAngle += 0.05;
-        ctx.translate(vortexPos.x, vortexPos.y);
-
-        for (let r = 1; r <= 3; r++) {
-          ctx.beginPath();
-          ctx.rotate(vortexAngle * 0.4 * (r % 2 === 0 ? 1 : -1));
-          ctx.arc(0, 0, r * 20, 0, Math.PI * 1.5);
-          ctx.strokeStyle = r === 1 ? '#38bdf8' : 'rgba(56, 189, 248, 0.35)';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
-
-        ctx.beginPath();
-        ctx.arc(0, 0, 7, 0, Math.PI * 2);
-        ctx.fillStyle = '#ffffff';
-        ctx.fill();
-        ctx.restore();
-      }
-
-      // Pairwise Collisions
-      for (let i = 0; i < bodies.length; i++) {
-        for (let j = i + 1; j < bodies.length; j++) {
-          const b1 = bodies[i];
-          const b2 = bodies[j];
-          const dx = b2.x - b1.x;
-          const dy = b2.y - b1.y;
-          const dist = Math.hypot(dx, dy);
-          const minDist = b1.size + b2.size;
-
-          if (dist < minDist && dist > 0.001) {
-            const nx = dx / dist;
-            const ny = dy / dist;
-
-            const overlap = (minDist - dist) * 0.5;
-            b1.x -= nx * overlap;
-            b1.y -= ny * overlap;
-            b2.x += nx * overlap;
-            b2.y += ny * overlap;
-
-            const kx = b1.vx - b2.vx;
-            const ky = b1.vy - b2.vy;
-            const velAlongNormal = kx * nx + ky * ny;
-
-            if (velAlongNormal > 0) {
-              const impulse = (2 * velAlongNormal) / 2;
-              b1.vx -= (impulse * restitution) * nx;
-              b1.vy -= (impulse * restitution) * ny;
-              b2.vx += (impulse * restitution) * nx;
-              b2.vy += (impulse * restitution) * ny;
-
-              if (velAlongNormal > 2.5) {
-                const midX = (b1.x + b2.x) / 2;
-                const midY = (b1.y + b2.y) / 2;
-                b1.emitCollisionFX(midX, midY, velAlongNormal);
-              }
-            }
-          }
-        }
-      }
-
-      // Update & Draw Bodies
-      bodies.forEach((b) => {
-        b.update(dt);
-        b.draw(ctx);
-      });
-
-      // Sparks
-      for (let i = sparks.length - 1; i >= 0; i--) {
-        const sp = sparks[i];
-        sp.x += sp.vx;
-        sp.y += sp.vy;
-        sp.vx *= 0.95;
-        sp.vy *= 0.95;
-        sp.alpha -= 0.04;
-
-        if (sp.alpha <= 0) {
-          sparks.splice(i, 1);
-        } else {
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(sp.x, sp.y, sp.size * sp.alpha, 0, Math.PI * 2);
-          ctx.fillStyle = sp.color;
-          ctx.globalAlpha = sp.alpha;
-          ctx.fill();
-          ctx.restore();
-        }
-      }
-
-      // Impact Rings
-      for (let i = impactRings.length - 1; i >= 0; i--) {
-        const ring = impactRings[i];
-        ring.r += 2;
-        ring.alpha -= 0.04;
-
-        if (ring.alpha <= 0 || ring.r >= ring.maxR) {
-          impactRings.splice(i, 1);
-        } else {
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2);
-          ctx.strokeStyle = ring.color;
-          ctx.lineWidth = 1.5 * ring.alpha;
-          ctx.globalAlpha = ring.alpha;
-          ctx.stroke();
-          ctx.restore();
-        }
-      }
-
-      // Slingshot Trajectory Arc
-      if (isDragging) {
-        ctx.save();
-        const dx = dragStart.x - dragCurrent.x;
-        const dy = dragStart.y - dragCurrent.y;
-
-        ctx.beginPath();
-        ctx.moveTo(dragStart.x, dragStart.y);
-        ctx.lineTo(dragCurrent.x, dragCurrent.y);
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.7)';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([4, 4]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        const vx = dx * 0.14;
-        const vy = dy * 0.14;
-        ctx.beginPath();
-        ctx.moveTo(dragStart.x, dragStart.y);
-        for (let t = 1; t <= 16; t++) {
-          const tx = dragStart.x + vx * t;
-          const ty = dragStart.y + vy * t + (!isZeroG ? 0.5 * gravity * 26 * (t * 0.016) * (t * 0.016) * 60 : 0);
-          ctx.lineTo(tx, ty);
-        }
-        ctx.strokeStyle = '#38bdf8';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(dragStart.x, dragStart.y, 12, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.2)';
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 2;
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.restore();
-      }
-
-      // Telemetry HUD Readout
-      if (bodyCountElem) bodyCountElem.textContent = bodies.length;
-      if (arenaStatusElem) {
-        arenaStatusElem.textContent = isVortexActive ? 'VORTEX ACTIVE' : isZeroG ? 'ZERO-G FLIGHT' : '60 Hz SOLVER';
-      }
-    }
-
-    requestAnimationFrame(loop);
-  }
 
   // ==========================================================================
   // 6. Project Modals
@@ -2895,7 +2156,7 @@ void BroadcastServer::broadcastMessage(const std::string& msg, int senderFd) {
       if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
         setTimeout(() => {
           if (formStatus) {
-            formStatus.innerHTML = `<span style="color:#10b981;">✓ Message received, ${name}! (To deliver directly to your Gmail inbox, add your free key from web3forms.com in index.html)</span>`;
+            formStatus.innerHTML = `<span style="color:#10b981;">âœ“ Message received, ${name}! (To deliver directly to your Gmail inbox, add your free key from web3forms.com in index.html)</span>`;
           }
           if (submitBtn) submitBtn.disabled = false;
           playSynthTone(1050, 'sine', 0.25, 0.08);
@@ -2914,19 +2175,19 @@ void BroadcastServer::broadcastMessage(const std::string& msg, int senderFd) {
 
         if (data.success) {
           if (formStatus) {
-            formStatus.innerHTML = `<span style="color:#10b981;">✓ Message sent successfully! I'll get back to you shortly.</span>`;
+            formStatus.innerHTML = `<span style="color:#10b981;">âœ“ Message sent successfully! I'll get back to you shortly.</span>`;
           }
           playSynthTone(1050, 'sine', 0.25, 0.08);
           contactForm.reset();
         } else {
           if (formStatus) {
-            formStatus.innerHTML = `<span style="color:#ef4444;">✗ ${data.message || 'Submission error. Please try again.'}</span>`;
+            formStatus.innerHTML = `<span style="color:#ef4444;">âœ— ${data.message || 'Submission error. Please try again.'}</span>`;
           }
           playSynthTone(220, 'sawtooth', 0.2, 0.06);
         }
       } catch (err) {
         if (formStatus) {
-          formStatus.innerHTML = `<span style="color:#ef4444;">✗ Network error. Please check your connection.</span>`;
+          formStatus.innerHTML = `<span style="color:#ef4444;">âœ— Network error. Please check your connection.</span>`;
         }
         playSynthTone(220, 'sawtooth', 0.2, 0.06);
       } finally {
@@ -2974,12 +2235,10 @@ void BroadcastServer::broadcastMessage(const std::string& msg, int senderFd) {
       initShinyBackground();
       initHeroThreeJs();
       initSystemsMatrixLab();
-      initSandbox();
     });
   } else {
     initShinyBackground();
     initHeroThreeJs();
     initSystemsMatrixLab();
-    initSandbox();
   }
 })();
