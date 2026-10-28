@@ -1513,6 +1513,12 @@ body.light-theme .deck-action-btn.warning {
     linear-gradient(135deg, #101224 0%, #0a0c1a 100%);
 }
 
+.grad-cyan {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.28), transparent 70%),
+    linear-gradient(135deg, #091a24 0%, #061118 100%);
+}
+
 /* Subtle Geometric Blueprint Overlay on Graphic */
 .project-graphic::before {
   content: '';

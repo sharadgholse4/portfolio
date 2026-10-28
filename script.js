@@ -2102,6 +2102,46 @@ void BroadcastServer::broadcastMessage(const std::string& msg, int senderFd) {
         </ul>
       `,
     },
+    aircraft: {
+      tag: 'Python // LangChain // ChromaDB // RAG & Ollama',
+      title: 'AI-Powered Aircraft Maintenance System',
+      content: `
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.1rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(6, 182, 212, 0.12); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3);">Role: AI/ML &amp; RAG Developer</span>
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Team Size: 4</span>
+        </div>
+        <p>An AI-powered aircraft maintenance and diagnostics platform utilizing Retrieval-Augmented Generation (RAG) and local LLM architectures to accelerate aviation safety analysis, fault diagnosis, and repair procedures.</p>
+        <pre><code># LangChain & ChromaDB RAG Vector Pipeline
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.llms import Ollama
+from langchain.chains import RetrievalQA
+
+def create_maintenance_agent():
+    # Embedding generation for aircraft technical documentation
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    db = Chroma(persist_directory="./aircraft_vault", embedding_function=embeddings)
+    
+    # Precision vector retrieval for context-aware queries
+    retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 4})
+    llm = Ollama(model="llama3", temperature=0.1)
+    
+    qa_chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=retriever,
+        return_source_documents=True
+    )
+    return qa_chain</code></pre>
+        <p><strong>Key Architecture Highlights:</strong></p>
+        <ul style="padding-left: 1.5rem; line-height: 1.8;">
+          <li><strong>RAG Document Retrieval:</strong> Implemented embeddings and vector search via ChromaDB for semantic retrieval across flight logs, maintenance manuals, and FAA safety bulletins.</li>
+          <li><strong>Predictive Maintenance &amp; Fault Diagnosis:</strong> Integrated AI workflows for real-time fault identification, telemetry anomaly detection, and actionable engineering recommendations.</li>
+          <li><strong>Interactive Streamlit UI:</strong> Streamlined web interface allowing aircraft technicians to query aircraft health in natural language with source document citations.</li>
+          <li><strong>Module Integration &amp; Team Collaboration:</strong> Contributed to core module integration, unit testing, debugging, and Git/GitHub collaborative workflows in a 4-person engineering team.</li>
+        </ul>
+      `,
+    },
   };
 
   window.openProjectModal = function (id) {
